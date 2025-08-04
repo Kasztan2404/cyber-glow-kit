@@ -69,12 +69,17 @@ export default {
 				},
 				// Futuristic theme colors
 				'cyber-orange': 'hsl(var(--cyber-orange))',
+				'cyber-orange-light': 'hsl(var(--cyber-orange-light))',
+				'cyber-orange-dark': 'hsl(var(--cyber-orange-dark))',
 				'cyber-orange-glow': 'hsl(var(--cyber-orange-glow))',
-				'cyber-orange-dim': 'hsl(var(--cyber-orange-dim))',
+				'cyber-red': 'hsl(var(--cyber-red))',
+				'cyber-red-light': 'hsl(var(--cyber-red-light))',
+				'cyber-red-dark': 'hsl(var(--cyber-red-dark))',
 				'deep-black': 'hsl(var(--deep-black))',
 				'surface-black': 'hsl(var(--surface-black))',
 				'surface-dark': 'hsl(var(--surface-dark))',
 				'surface-medium': 'hsl(var(--surface-medium))',
+				'surface-light': 'hsl(var(--surface-light))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

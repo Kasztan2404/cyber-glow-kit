@@ -15,12 +15,12 @@ export const CyberDemo = () => {
             setTimeout(() => {
               setActiveDemo(null);
               setProgress(0);
-            }, 1000);
+            }, 1500);
             return 100;
           }
-          return prev + 2;
+          return prev + 1.5;
         });
-      }, 50);
+      }, 40);
 
       return () => clearInterval(interval);
     }
@@ -31,16 +31,19 @@ export const CyberDemo = () => {
       id: "neural",
       title: "Neural Scan",
       description: "Initialize biometric authentication",
+      color: "cyber-red",
     },
     {
       id: "quantum",
-      title: "Quantum Sync",
+      title: "Quantum Sync", 
       description: "Synchronize quantum processors",
+      color: "cyber-orange",
     },
     {
       id: "security",
       title: "Security Check",
-      description: "Run system security protocols",
+      description: "Run system security protocols", 
+      color: "cyber-orange-light",
     },
   ];
 
@@ -78,24 +81,34 @@ export const CyberDemo = () => {
             </p>
           </div>
           
-          {/* Progress bar */}
-          <div className="relative h-2 bg-surface-dark rounded-full overflow-hidden">
+          {/* Progress bar with enhanced styling */}
+          <div className="relative h-3 bg-surface-dark rounded-full overflow-hidden border border-cyber-orange/30">
             <div 
-              className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyber-orange to-cyber-orange-glow transition-all duration-100 ease-out"
-              style={{ width: `${progress}%` }}
+              className="absolute top-0 left-0 h-full transition-all duration-100 ease-out rounded-full"
+              style={{ 
+                width: `${progress}%`,
+                background: activeDemo === 'neural' ? 'var(--gradient-cyber-fire)' :
+                           activeDemo === 'quantum' ? 'var(--gradient-cyber-orange)' :
+                           'var(--gradient-warm)'
+              }}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse" />
           </div>
           
-          <div className="text-center text-sm text-muted-foreground">
-            {progress}% Complete
+          <div className="text-center text-sm text-muted-foreground font-rajdhani">
+            {progress.toFixed(1)}% Complete • {demos.find(d => d.id === activeDemo)?.title}
           </div>
         </div>
       )}
 
       {progress === 100 && (
-        <div className="text-center text-cyber-orange font-bold animate-pulse">
-          ✓ Operation Complete
+        <div className="text-center space-y-2">
+          <div className="text-cyber-orange-light font-bold text-lg animate-pulse">
+            ✓ Operation Complete
+          </div>
+          <div className="text-sm text-muted-foreground font-rajdhani">
+            System ready for next operation
+          </div>
         </div>
       )}
     </CyberCard>
